@@ -2,7 +2,7 @@
  *
  *  Comments are example assets which could by add to game.
 */
-package com.mygdx.game;
+package com.mygdx.screens.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
