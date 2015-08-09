@@ -27,7 +27,7 @@ public class GameController extends InputAdapter implements Disposable {
     private static final String TAG = GameController.class.getName();
 
     private DirectedGame game;
-    public Level level;
+    public LevelImpl level;
     public CameraHelper cameraHelper;
     public World b2world;
 
@@ -42,7 +42,7 @@ public class GameController extends InputAdapter implements Disposable {
     }
 
     private void initLevel () {
-        level = new Level();
+        level = new LevelImpl();
         //cameraHelper.setTarget(/*object*/);
         initPhysics();
     }
