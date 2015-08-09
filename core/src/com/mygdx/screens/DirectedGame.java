@@ -21,18 +21,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.mygdx.screens.game.GameScreen;
 
 public abstract class DirectedGame implements ApplicationListener {
 
     private boolean init;
-    private AbstractGameScreen currentScreen;
-    private AbstractGameScreen nextScreen;
+    private GameScreen currentScreen;
+    private GameScreen nextScreen;
     private FrameBuffer currFbo;
     private FrameBuffer nextFbo;
     private SpriteBatch batch;
     private float t;
 
-    public void setScreen (AbstractGameScreen screen) {
+    public void setScreen (GameScreen screen) {
         int w = Gdx.graphics.getWidth();
         int h = Gdx.graphics.getHeight();
         if (!init) {

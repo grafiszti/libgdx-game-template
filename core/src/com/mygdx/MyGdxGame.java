@@ -5,7 +5,7 @@ import com.mygdx.screens.game.Assets;
 import com.mygdx.screens.DirectedGame;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.assets.AssetManager;
-import com.mygdx.screens.game.GameScreen;
+import com.mygdx.screens.game.GameScreenImpl;
 
 public class MyGdxGame extends DirectedGame {
 
@@ -18,6 +18,6 @@ public class MyGdxGame extends DirectedGame {
 		Assets.instance.init(new AssetManager());
 
 		// Start game at first screen
-		setScreen(new GameScreen(this));
+		setScreen(new GameScreenImpl(this));
 	}
 }
