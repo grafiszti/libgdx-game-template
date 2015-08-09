@@ -1,18 +1,20 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * Copyright 2013 Andreas Oehlke
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 package com.mygdx.screens.game;
 
 import com.badlogic.gdx.Gdx;
@@ -35,7 +37,7 @@ public class GameScreenImpl extends GameScreen {
     }
 
     @Override
-    public void render (float deltaTime) {
+    public void render(float deltaTime) {
         if (!paused) {
             gameController.update(deltaTime);
         }
@@ -48,37 +50,39 @@ public class GameScreenImpl extends GameScreen {
     }
 
     @Override
-    public void resize (int width, int height) {
+    public void resize(int width, int height) {
         gameRenderer.resize(width, height);
     }
 
     @Override
-    public void show () {
+    public void show() {
         GamePreferences.instance.load();
         gameController = new GameController(game);
         gameRenderer = new GameRenderer(gameController);
+        Gdx.input.setCatchBackKey(true);
     }
 
     @Override
-    public void hide () {
+    public void hide() {
         gameController.dispose();
         gameRenderer.dispose();
+        Gdx.input.setCatchBackKey(false);
     }
 
     @Override
-    public void pause () {
+    public void pause() {
         paused = true;
     }
 
     @Override
-    public void resume () {
+    public void resume() {
         super.resume();
         // Only called on Android!
         paused = false;
     }
 
     @Override
-    public InputProcessor getInputProcessor () {
+    public InputProcessor getInputProcessor() {
         return gameController;
     }
 }

@@ -27,6 +27,7 @@ public abstract class GameScreen implements Screen {
     public void resume() {
         Assets.instance.init(new AssetManager());
     }
+
     public void dispose() {
         Assets.instance.dispose();
     }

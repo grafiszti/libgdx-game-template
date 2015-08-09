@@ -32,7 +32,8 @@ public class Assets implements Disposable, AssetErrorListener {
     //public AssetMusic music;
 
     // singleton
-    private Assets() { }
+    private Assets() {
+    }
 
     /*public class AssetFonts {
         public final BitmapFont defaultNormal;
@@ -123,7 +124,7 @@ public class Assets implements Disposable, AssetErrorListener {
         createSounds(assetManager);
     }
 
-    private void initAssetManager(AssetManager assetManager){
+    private void initAssetManager(AssetManager assetManager) {
         this.assetManager = assetManager;
         // set asset manager error handler
         assetManager.setErrorListener(this);
@@ -137,21 +138,21 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.finishLoading();
     }
 
-    private void enableTextureFiltering(TextureAtlas atlas){
+    private void enableTextureFiltering(TextureAtlas atlas) {
         for (Texture t : atlas.getTextures()) {
             t.setFilter(TextureFilter.Linear, TextureFilter.Linear);
         }
     }
 
-    private void createFonts(){
+    private void createFonts() {
         //fonts = new AssetFonts();
     }
 
-    private void createGameObjects(TextureAtlas atlas){
+    private void createGameObjects(TextureAtlas atlas) {
         //bunny = new AssetBunny(atlas);
     }
 
-    private void createSounds(AssetManager assetManager){
+    private void createSounds(AssetManager assetManager) {
         //sounds = new AssetSounds(assetManager);
         //music = new AssetMusic(assetManager);
     }

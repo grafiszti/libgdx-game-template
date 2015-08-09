@@ -1,18 +1,20 @@
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * Copyright 2013 Andreas Oehlke
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 package com.mygdx.screens;
 
@@ -33,7 +35,7 @@ public abstract class DirectedGame implements ApplicationListener {
     private SpriteBatch batch;
     private float t;
 
-    public void setScreen (GameScreen screen) {
+    public void setScreen(GameScreen screen) {
         int w = Gdx.graphics.getWidth();
         int h = Gdx.graphics.getHeight();
         if (!init) {
@@ -72,23 +74,23 @@ public abstract class DirectedGame implements ApplicationListener {
     }
 
     @Override
-    public void resize (int width, int height) {
+    public void resize(int width, int height) {
         if (currentScreen != null) currentScreen.resize(width, height);
         if (nextScreen != null) nextScreen.resize(width, height);
     }
 
     @Override
-    public void pause () {
+    public void pause() {
         if (currentScreen != null) currentScreen.pause();
     }
 
     @Override
-    public void resume () {
+    public void resume() {
         if (currentScreen != null) currentScreen.resume();
     }
 
     @Override
-    public void dispose () {
+    public void dispose() {
         if (currentScreen != null) currentScreen.hide();
         if (nextScreen != null) nextScreen.hide();
         if (init) {

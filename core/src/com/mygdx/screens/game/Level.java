@@ -7,5 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public interface Level {
     void update(float deltaTime);
+
     void render(SpriteBatch batch);
 }

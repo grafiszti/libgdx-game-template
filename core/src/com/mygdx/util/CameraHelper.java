@@ -1,20 +1,22 @@
 package com.mygdx.util;
 
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * Copyright 2013 Andreas Oehlke
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
@@ -33,54 +35,54 @@ public class CameraHelper {
     private float zoom;
     private AbstractGameObject target;
 
-    public CameraHelper () {
+    public CameraHelper() {
         position = new Vector2();
         zoom = 1.0f;
     }
 
-    public void update (float deltaTime) {
+    public void update(float deltaTime) {
         if (!hasTarget()) return;
 
         position.lerp(target.position, FOLLOW_SPEED * deltaTime);
     }
 
-    public void setPosition (float x, float y) {
+    public void setPosition(float x, float y) {
         this.position.set(x, y);
     }
 
-    public Vector2 getPosition () {
+    public Vector2 getPosition() {
         return position;
     }
 
-    public void addZoom (float amount) {
+    public void addZoom(float amount) {
         setZoom(zoom + amount);
     }
 
-    public void setZoom (float zoom) {
+    public void setZoom(float zoom) {
         this.zoom = MathUtils.clamp(zoom, MAX_ZOOM_IN, MAX_ZOOM_OUT);
     }
 
-    public float getZoom () {
+    public float getZoom() {
         return zoom;
     }
 
-    public void setTarget (AbstractGameObject target) {
+    public void setTarget(AbstractGameObject target) {
         this.target = target;
     }
 
-    public AbstractGameObject getTarget () {
+    public AbstractGameObject getTarget() {
         return target;
     }
 
-    public boolean hasTarget () {
+    public boolean hasTarget() {
         return target != null;
     }
 
-    public boolean hasTarget (AbstractGameObject target) {
+    public boolean hasTarget(AbstractGameObject target) {
         return hasTarget() && this.target.equals(target);
     }
 
-    public void applyTo (OrthographicCamera camera) {
+    public void applyTo(OrthographicCamera camera) {
         camera.position.x = position.x;
         camera.position.y = position.y;
         camera.zoom = zoom;

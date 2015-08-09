@@ -1,20 +1,22 @@
 package com.mygdx.util;
 
-/*******************************************************************************
+/**
+ * ****************************************************************************
  * Copyright 2013 Andreas Oehlke
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
+ * ****************************************************************************
+ */
 
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -26,27 +28,27 @@ public class AudioManager {
     private Music playingMusic;
 
     // singleton
-    private AudioManager () {
+    private AudioManager() {
     }
 
-    public void play (Sound sound) {
+    public void play(Sound sound) {
         play(sound, 1);
     }
 
-    public void play (Sound sound, float volume) {
+    public void play(Sound sound, float volume) {
         play(sound, volume, 1);
     }
 
-    public void play (Sound sound, float volume, float pitch) {
+    public void play(Sound sound, float volume, float pitch) {
         play(sound, volume, pitch, 0);
     }
 
-    public void play (Sound sound, float volume, float pitch, float pan) {
+    public void play(Sound sound, float volume, float pitch, float pan) {
         if (!GamePreferences.instance.sound) return;
         sound.play(GamePreferences.instance.volSound * volume, pitch, pan);
     }
 
-    public void play (Music music) {
+    public void play(Music music) {
         playingMusic = music;
         if (GamePreferences.instance.music) {
             music.setLooping(true);
@@ -55,15 +57,15 @@ public class AudioManager {
         }
     }
 
-    public void stopMusic () {
+    public void stopMusic() {
         if (playingMusic != null) playingMusic.stop();
     }
 
-    public Music getPlayingMusic () {
+    public Music getPlayingMusic() {
         return playingMusic;
     }
 
-    public void onSettingsUpdated () {
+    public void onSettingsUpdated() {
         if (playingMusic == null) return;
         playingMusic.setVolume(GamePreferences.instance.volMusic);
         if (GamePreferences.instance.music) {
